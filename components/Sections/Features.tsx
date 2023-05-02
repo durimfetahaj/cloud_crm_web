@@ -8,6 +8,10 @@ const FeaturesContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   padding: 100px 20px;
+
+  @media (max-width: 768px) {
+    padding: ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 const Feature = styled.div`
@@ -17,6 +21,10 @@ const Feature = styled.div`
   text-align: center;
   margin: 20px;
   max-width: 300px;
+
+  @media (max-width: 768px) {
+    margin: 0px;
+  }
 
   h3 {
     margin-bottom: 20px;

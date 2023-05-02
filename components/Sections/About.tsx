@@ -7,6 +7,9 @@ const AboutContainer = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
+  @media (max-width: 768px) {
+    padding: ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 const AboutTitle = styled.h2`

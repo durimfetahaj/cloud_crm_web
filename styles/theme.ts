@@ -3,8 +3,13 @@ import { createGlobalStyle } from "styled-components";
 export const theme = {
   colors: {
     primary: "#0070f3",
+    secondary: "#f38300",
     background: "#f7f7f7",
     text: "#333",
+    common: {
+      white: "#fff",
+      black: "#000",
+    },
   },
   fonts: {
     heading: "Open Sans, sans-serif",
@@ -113,6 +118,7 @@ scroll-behavior: smooth;
     margin-bottom: 1rem;
     line-height: 1.5;
   }
+
 
   @media (max-width: 768px) {
     :root {

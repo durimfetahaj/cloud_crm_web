@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 
 const HeaderContainer = styled.header`
@@ -14,15 +14,19 @@ const HeaderContainer = styled.header`
   width: 100%;
   z-index: 999;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    justify-content: space-around;
+    padding: 1rem ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 const Logo = styled.h2`
   margin: 0;
+  color: ${({ theme }) => theme.colors.common.white};
 `;
 
-// TODO: hide navigation on mobile. Add hamburger icon and sidebar.
-
-const Navigation = styled.nav`
+const Navigation = styled.nav<{ isMenuOpen: boolean }>`
   ul {
     display: flex;
     list-style: none;
@@ -39,7 +43,7 @@ const Navigation = styled.nav`
   }
 
   a {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.common.white};
     text-decoration: none;
     transition: all 0.3s ease;
 
@@ -47,21 +51,72 @@ const Navigation = styled.nav`
       color: ${({ theme }) => theme.colors.secondary};
     }
   }
+
+  /* hide navigation on mobile */
+  @media (max-width: 768px) {
+    display: ${({ isMenuOpen }) => (isMenuOpen ? "flex" : "none")};
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 50px);
+    background-color: ${({ theme }) => theme.colors.common.white};
+    z-index: 998;
+    text-align: center;
+
+    ul {
+      flex-direction: column;
+      width: 100%;
+
+      li {
+        width: 100%;
+        padding: 24px 0px;
+        border-top: 1px solid #eeeeee;
+        text-decoration: none;
+
+        &:last-child {
+          border-bottom: 1px solid #eeeeee;
+        }
+
+        a {
+          color: ${({ theme }) => theme.colors.primary};
+        }
+      }
+    }
+  }
+`;
+
+const MenuIcon = styled.div`
+  display: none;
+  color: ${({ theme }) => theme.colors.common.white};
+
+  /* show menu icon on mobile */
+  @media (max-width: 768px) {
+    display: block;
+    cursor: pointer;
+  }
 `;
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <HeaderContainer>
       <Logo>My Website</Logo>
-      <Navigation>
+      <MenuIcon onClick={toggleMenu}>☰</MenuIcon>
+      <Navigation isMenuOpen={isMenuOpen}>
         <ul>
-          <li>
+          <li onClick={toggleMenu}>
             <a href="#home">Home</a>
           </li>
-          <li>
+          <li onClick={toggleMenu}>
             <a href="#about">About</a>
           </li>
-          <li>
+          <li onClick={toggleMenu}>
             <a href="#contact">Contact</a>
           </li>
         </ul>

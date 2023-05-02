@@ -7,6 +7,10 @@ const ContactContainer = styled.section`
   padding: ${(props) => props.theme.spacing.xl};
   max-width: ${({ theme }) => theme.containerWidth};
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    padding: ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 const ContactHeading = styled.h2`

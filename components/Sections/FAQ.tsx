@@ -3,6 +3,9 @@ import styled from "styled-components";
 const Container = styled.section`
   max-width: 800px;
   margin: 0 auto;
+  @media (max-width: 768px) {
+    padding: ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 const Question = styled.h3`

@@ -23,6 +23,10 @@ const PricingContainer = styled.div`
   gap: 2rem;
   padding: 4rem 2rem;
   background-color: ${(props) => props.theme.background};
+
+  @media (max-width: 768px) {
+    padding: ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 const PlanCard = styled.div`

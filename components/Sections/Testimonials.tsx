@@ -3,6 +3,10 @@ import styled from "styled-components";
 const TestimonialsContainer = styled.section`
   padding: 4rem 2rem;
   text-align: center;
+
+  @media (max-width: 768px) {
+    padding: ${({ theme }) => theme.spacing.sm};
+  }
 `;
 
 const TestimonialsHeading = styled.h2`
@@ -22,6 +26,9 @@ const TestimonialsList = styled.ul`
 
 const TestimonialItem = styled.li`
   margin: 2rem;
+  @media (max-width: 768px) {
+    margin: 0px;
+  }
 `;
 
 const TestimonialText = styled.p`
