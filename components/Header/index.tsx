@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React, { useState } from "react";
 import styled from "styled-components";
 
@@ -106,7 +107,9 @@ const Header = () => {
 
   return (
     <HeaderContainer>
-      <Logo>My Website</Logo>
+      <Logo>
+        <Image src="/images/logo.svg" alt="Logo" width={200} height={40} />
+      </Logo>
       <MenuIcon onClick={toggleMenu}>☰</MenuIcon>
       <Navigation isMenuOpen={isMenuOpen}>
         <ul>
