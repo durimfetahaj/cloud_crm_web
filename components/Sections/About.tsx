@@ -22,7 +22,7 @@ const AboutText = styled.p`
 
 const About = () => {
   return (
-    <AboutContainer id="about">
+    <AboutContainer>
       <AboutTitle>About Us</AboutTitle>
       <AboutText>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce non quam

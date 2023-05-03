@@ -40,7 +40,7 @@ const Feature = styled.div`
 
 const Features = () => {
   return (
-    <FeaturesContainer>
+    <FeaturesContainer id="features">
       <Feature>
         <h3>Feature 1</h3>
         <p>

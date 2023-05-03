@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Container = styled.section`
+const FaqContainer = styled.section`
   max-width: 800px;
   margin: 0 auto;
   @media (max-width: 768px) {
@@ -24,7 +24,7 @@ const Answer = styled.p`
 
 const Faq = () => {
   return (
-    <Container>
+    <FaqContainer id="faq">
       <Question>What is your refund policy?</Question>
       <Answer>
         We offer a 30-day money back guarantee for all purchases. If you&apos;re
@@ -41,7 +41,7 @@ const Faq = () => {
         Yes, we offer a 14-day free trial for all new customers. Sign up today
         to get started!
       </Answer>
-    </Container>
+    </FaqContainer>
   );
 };
 

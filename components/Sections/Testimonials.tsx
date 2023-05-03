@@ -61,7 +61,7 @@ type TestimonialsProps = {
 
 const Testimonials = ({ testimonials }: TestimonialsProps) => {
   return (
-    <TestimonialsContainer>
+    <TestimonialsContainer id="testimonials">
       <TestimonialsHeading>What our clients say</TestimonialsHeading>
       <TestimonialsList>
         {testimonials.map((testimonial, index) => (

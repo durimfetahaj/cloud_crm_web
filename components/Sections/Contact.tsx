@@ -56,7 +56,7 @@ const ContactButton = styled.button`
 
 function Contact() {
   return (
-    <ContactContainer id="contact">
+    <ContactContainer>
       <ContactHeading>Contact Us</ContactHeading>
       <ContactForm>
         <ContactLabel htmlFor="name">Name</ContactLabel>

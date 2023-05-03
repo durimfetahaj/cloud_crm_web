@@ -16,7 +16,7 @@ interface Props {
   plans: Plan[];
 }
 
-const PricingContainer = styled.div`
+const ServicesContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -85,7 +85,7 @@ const ActionButton = styled.button`
 
 const Pricing = ({ plans }: Props) => {
   return (
-    <PricingContainer>
+    <ServicesContainer id="services">
       {plans.map((plan, index) => (
         <PlanCard key={index}>
           <PlanName>{plan.name}</PlanName>
@@ -102,7 +102,7 @@ const Pricing = ({ plans }: Props) => {
           <ActionButton>Select Plan</ActionButton>
         </PlanCard>
       ))}
-    </PricingContainer>
+    </ServicesContainer>
   );
 };
 
