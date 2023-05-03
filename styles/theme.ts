@@ -2,8 +2,18 @@ import { createGlobalStyle } from "styled-components";
 
 export const theme = {
   colors: {
-    primary: "#02162D",
-    secondary: "#5567FF",
+    primary: {
+      main: "#1D2146",
+      light: "rgba(113,65,248,0.03)",
+      dark: "#02162D",
+      contrastText: "#fff",
+    },
+    secondary: {
+      main: "#5567FF",
+      dark: "",
+      light: "",
+      contrastText: "#fff",
+    },
     background: "#f7f7f7",
     text: "#0F2137",
     common: {

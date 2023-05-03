@@ -9,12 +9,12 @@ const HeaderContainer = styled.header`
   justify-content: space-around;
   align-items: center;
   padding: ${({ theme }) => theme.spacing.sm};
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.primary.dark};
   color: ${({ theme }) => theme.colors.white};
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 2;
   width: 100%;
 
   @media (max-width: 768px) {
@@ -43,7 +43,7 @@ const Navigation = styled.nav<{ isMenuOpen: boolean }>`
     }
 
     .active {
-      color: ${({ theme }) => theme.colors.secondary};
+      color: ${({ theme }) => theme.colors.secondary.main};
     }
 
     li:not(:last-child) {
@@ -76,7 +76,7 @@ const Navigation = styled.nav<{ isMenuOpen: boolean }>`
     width: 100%;
     height: calc(100% - 70px);
     background-color: ${({ theme }) => theme.colors.common.white};
-    z-index: 998;
+    z-index: 1;
 
     button {
       margin: 32px 0px;
@@ -147,7 +147,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <Button>Purchase Now</Button>
+        <Button primary>Purchase Now</Button>
       </Navigation>
     </HeaderContainer>
   );

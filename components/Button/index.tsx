@@ -3,14 +3,18 @@ import styled from "styled-components";
 type ButtonProps = {
   outlined?: boolean;
   fullWidth?: boolean;
-  hasIcon?: boolean;
+  text?: boolean;
+  primary?: boolean;
   onClick?: () => void;
 };
 
 const Button = styled.button<ButtonProps>`
-  background-color: ${({ outlined, hasIcon, theme }) =>
-    !outlined ? theme.colors.secondary : "transparent"};
-  color: ${({ theme }) => theme.colors.common.white};
+  background-color: ${({ outlined, text, primary, theme }) =>
+    (primary && theme.colors.secondary.main) ||
+    (text && "transparent") ||
+    (outlined && "transparent")};
+  color: ${({ text, theme }) =>
+    text ? theme.colors.secondary : theme.colors.common.white};
   border: ${({ outlined, theme }) =>
     outlined ? `2px solid ${theme.colors.border}` : "none"};
   border-radius: 5px;

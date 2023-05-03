@@ -9,7 +9,7 @@ const HeroContainer = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 50px 12px 0px 12px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.primary.dark};
   text-align: center;
   height: 90vh;
   @media (max-width: 768px) {
@@ -59,6 +59,7 @@ const HeroActions = styled.div`
 
 const HeroMedia = styled.div`
   margin-bottom: -30vh;
+  z-index: 1;
 
   @media (max-width: 768px) {
     margin-bottom: -20vh;
@@ -79,7 +80,7 @@ const Hero = () => {
         </HeroHeading>
         <HeroText>A simple and powerful erp management tools</HeroText>
         <HeroActions>
-          <Button>Try free trial</Button>
+          <Button primary>Try free trial</Button>
           <Button outlined>
             Discover video <PlayIcon />
           </Button>
@@ -91,7 +92,6 @@ const Hero = () => {
           alt="hero-media"
           width={500}
           height={500}
-          unoptimized={true}
           priority
         />
       </HeroMedia>
