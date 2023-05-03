@@ -1,7 +1,12 @@
+import Slider from "react-slick";
 import styled from "styled-components";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Image from "next/image";
 
 const TestimonialsContainer = styled.section`
-  padding: 4rem 2rem;
+  margin: 6rem 0rem;
+  padding: 4rem 35rem;
   text-align: center;
 
   @media (max-width: 768px) {
@@ -9,48 +14,72 @@ const TestimonialsContainer = styled.section`
   }
 `;
 
-const TestimonialsHeading = styled.h2`
-  color: var(--color-primary);
-  margin-bottom: 2rem;
-  font-size: var(--font-size-md);
-`;
-
-const TestimonialsList = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
+const TestimonialItem = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  text-align: start;
   justify-content: center;
-`;
-
-const TestimonialItem = styled.li`
-  margin: 2rem;
-  @media (max-width: 768px) {
-    margin: 0px;
-  }
+  gap: 30px;
 `;
 
 const TestimonialText = styled.p`
   margin-bottom: 1rem;
-  font-size: var(--font-size-sm);
+  line-height: 30px;
+  font-size: ${({ theme }) => theme.fontSizes.sm};
+  font-weight: 500;
+  max-width: 600px;
+`;
+const ItemMedia = styled.div`
+  padding-top: 40px;
 `;
 
-const TestimonialAuthor = styled.p`
-  font-weight: bold;
-  font-size: var(--font-size-xs);
+const TestimonialAuthor = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  .name {
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    font-weight: 500;
+    margin-bottom: ${({ theme }) => theme.spacing.xs};
+  }
+  .role {
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+    font-weight: 400;
+    color: ${({ theme }) => theme.colors.grey.primary};
+  }
+`;
+
+const ItemContent = styled.div`
+  img {
+    margin-bottom: 10px;
+  }
 `;
 
 type TestimonialProps = {
   text: string;
-  author: string;
+  author: { name: string; role: string };
+  avatarUrl: string;
+  companyUrl: string;
 };
 
-const Testimonial = ({ text, author }: TestimonialProps) => {
+const Testimonial = ({
+  text,
+  author,
+  avatarUrl,
+  companyUrl,
+}: TestimonialProps) => {
   return (
     <TestimonialItem>
-      <TestimonialText>{text}</TestimonialText>
-      <TestimonialAuthor>{author}</TestimonialAuthor>
+      <ItemMedia>
+        <Image alt={author.name} src={avatarUrl} height={60} width={60} />
+      </ItemMedia>
+      <ItemContent>
+        <Image alt={author.name} src={companyUrl} height={30} width={100} />
+        <TestimonialText>{text}</TestimonialText>
+        <TestimonialAuthor>
+          <p className="name">{author.name}</p>
+          <p className="role">{author.role}</p>
+        </TestimonialAuthor>
+      </ItemContent>
     </TestimonialItem>
   );
 };
@@ -60,14 +89,24 @@ type TestimonialsProps = {
 };
 
 const Testimonials = ({ testimonials }: TestimonialsProps) => {
+  //todo: make two slides on large screen and one on small screen
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+  };
   return (
     <TestimonialsContainer id="testimonials">
-      <TestimonialsHeading>What our clients say</TestimonialsHeading>
-      <TestimonialsList>
-        {testimonials.map((testimonial, index) => (
-          <Testimonial key={index} {...testimonial} />
-        ))}
-      </TestimonialsList>
+      <div>
+        <Slider {...settings}>
+          {testimonials.map((testimonial, index) => (
+            <Testimonial key={index} {...testimonial} />
+          ))}
+        </Slider>
+      </div>
     </TestimonialsContainer>
   );
 };

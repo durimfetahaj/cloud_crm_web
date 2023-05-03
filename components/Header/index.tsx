@@ -11,11 +11,11 @@ const HeaderContainer = styled.header`
   padding: ${({ theme }) => theme.spacing.sm};
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
-  overflow: hidden;
 
   @media (max-width: 768px) {
     padding: 1rem 0rem;

@@ -1,6 +1,5 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
-import About from "components/Sections/About";
 import Contact from "components/Sections/Contact";
 import Faq from "components/Sections/FAQ";
 import Features from "components/Sections/Features";
@@ -9,6 +8,8 @@ import Services from "@/Sections/Services";
 import Testimonials from "components/Sections/Testimonials";
 import { pricingData, testimonialsData } from "data/dummy";
 import Head from "next/head";
+
+//todo: fix css dissappears on page refresh
 
 export default function Home() {
   return (
@@ -22,9 +23,8 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <About />
-        <Features />
         <Testimonials testimonials={testimonialsData} />
+        <Features />
         <Services plans={pricingData} />
         <Faq />
       </main>

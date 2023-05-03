@@ -5,10 +5,13 @@ export const theme = {
     primary: "#02162D",
     secondary: "#5567FF",
     background: "#f7f7f7",
-    text: "#333",
+    text: "#0F2137",
     common: {
       white: "#fff",
       black: "#000",
+    },
+    grey: {
+      primary: "#343D48",
     },
     border: "rgba(255, 255, 255, 0.25)",
   },
@@ -122,7 +125,6 @@ box-sizing: border-box;
   p {
     font-size: var(--font-size-sm);
     margin: 0;
-    margin-bottom: 1rem;
     line-height: 1.5;
   }
 

@@ -28,12 +28,22 @@ export const pricingData = [
 
 export const testimonialsData = [
   {
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    author: "John Doe",
+    text: "Just complete the project. Always clear explanation. In the beginning you will be taught how to deal with this amazing talented people.",
+    author: {
+      name: "Jane Doe",
+      role: "Vice President - Talent & Acquisition",
+    },
+    avatarUrl: "/images/Testimonials/author_1.svg",
+    companyUrl: "/images/Testimonials/company_1.svg",
   },
   {
-    text: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus non dolor id libero interdum luctus.",
-    author: "Jane Doe",
+    text: "Amazing service complementory. Totally a different experience to working with this mind blowing team. Don’t want to miss to work again.",
+    author: {
+      name: "Jane Doe",
+      role: "Vice President - Talent & Acquisition",
+    },
+    avatarUrl: "/images/Testimonials/author_2.svg",
+    companyUrl: "/images/Testimonials/company_2.svg",
   },
 ];
 
