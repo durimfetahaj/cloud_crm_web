@@ -1,38 +1,50 @@
+import Button from "@/Button";
+import { menuItems } from "data/dummy";
 import Image from "next/image";
 import React, { useState } from "react";
 import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 1rem;
+  padding: ${({ theme }) => theme.spacing.sm};
   background-color: ${({ theme }) => theme.colors.primary};
   color: ${({ theme }) => theme.colors.white};
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
   overflow: hidden;
 
   @media (max-width: 768px) {
-    justify-content: space-around;
-    padding: 1rem ${({ theme }) => theme.spacing.sm};
+    padding: 1rem 0rem;
   }
 `;
 
 const Logo = styled.h2`
   margin: 0;
-  color: ${({ theme }) => theme.colors.common.white};
 `;
 
 const Navigation = styled.nav<{ isMenuOpen: boolean }>`
+  display: flex;
+  align-items: center;
+
   ul {
     display: flex;
     list-style: none;
     margin: 0;
     padding: 0;
+    font-size: ${({ theme }) => theme.fontSizes.xs};
+    margin-right: 5rem;
+
+    @media (width: 1024px) {
+      margin-right: 0rem;
+    }
+
+    .active {
+      color: ${({ theme }) => theme.colors.secondary};
+    }
 
     li:not(:last-child) {
       margin-right: 2rem;
@@ -56,22 +68,29 @@ const Navigation = styled.nav<{ isMenuOpen: boolean }>`
   /* hide navigation on mobile */
   @media (max-width: 768px) {
     display: ${({ isMenuOpen }) => (isMenuOpen ? "flex" : "none")};
+    flex-direction: column;
+    justify-content: space-between;
     position: fixed;
-    top: 50px;
+    bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 50px);
+    height: calc(100% - 70px);
     background-color: ${({ theme }) => theme.colors.common.white};
     z-index: 998;
-    text-align: center;
+
+    button {
+      margin: 32px 0px;
+      width: 90%;
+    }
 
     ul {
       flex-direction: column;
       width: 100%;
+      margin-right: 0rem;
 
       li {
         width: 100%;
-        padding: 24px 0px;
+        padding: 16px;
         border-top: 1px solid #eeeeee;
         text-decoration: none;
 
@@ -100,6 +119,7 @@ const MenuIcon = styled.div`
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -113,16 +133,21 @@ const Header = () => {
       <MenuIcon onClick={toggleMenu}>☰</MenuIcon>
       <Navigation isMenuOpen={isMenuOpen}>
         <ul>
-          <li onClick={toggleMenu}>
-            <a href="#home">Home</a>
-          </li>
-          <li onClick={toggleMenu}>
-            <a href="#about">About</a>
-          </li>
-          <li onClick={toggleMenu}>
-            <a href="#contact">Contact</a>
-          </li>
+          {menuItems.map(({ id, label }) => (
+            <li onClick={toggleMenu}>
+              <a
+                href={id}
+                className={activeLink === id ? "active" : ""}
+                onClick={() => {
+                  setActiveLink(id);
+                }}
+              >
+                {label}
+              </a>
+            </li>
+          ))}
         </ul>
+        <Button>Purchase Now</Button>
       </Navigation>
     </HeaderContainer>
   );

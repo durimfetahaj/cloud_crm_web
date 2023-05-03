@@ -1,13 +1,13 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import About from "@/components/Sections/About";
-import Contact from "@/components/Sections/Contact";
-import Faq from "@/components/Sections/FAQ";
-import Features from "@/components/Sections/Features";
-import Hero from "@/components/Sections/Hero";
-import Pricing from "@/components/Sections/Pricing";
-import Testimonials from "@/components/Sections/Testimonials";
-import { pricingData, testimonialsData } from "@/data/dummy";
+import Footer from "components/Footer";
+import Header from "components/Header";
+import About from "components/Sections/About";
+import Contact from "components/Sections/Contact";
+import Faq from "components/Sections/FAQ";
+import Features from "components/Sections/Features";
+import Hero from "components/Sections/Hero";
+import Services from "@/Sections/Services";
+import Testimonials from "components/Sections/Testimonials";
+import { pricingData, testimonialsData } from "data/dummy";
 import Head from "next/head";
 
 export default function Home() {
@@ -25,9 +25,8 @@ export default function Home() {
         <About />
         <Features />
         <Testimonials testimonials={testimonialsData} />
-        <Pricing plans={pricingData} />
+        <Services plans={pricingData} />
         <Faq />
-        <Contact />
       </main>
       <Footer />
     </>
