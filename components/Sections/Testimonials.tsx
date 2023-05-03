@@ -8,6 +8,7 @@ const TestimonialsContainer = styled.section`
   margin: 6rem 0rem;
   padding: 4rem 35rem;
   text-align: center;
+  scroll-margin-top: 5vh;
 
   @media (max-width: 768px) {
     padding: ${({ theme }) => theme.spacing.sm};
