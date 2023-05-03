@@ -10,6 +10,7 @@ export const theme = {
       white: "#fff",
       black: "#000",
     },
+    border: "rgba(255, 255, 255, 0.25)",
   },
   fonts: {
     heading: "DM Sans, sans-serif",
@@ -20,6 +21,7 @@ export const theme = {
     sm: "1.2rem",
     md: "1.5rem",
     lg: "1.8rem",
+    xl: "3rem",
   },
   breakpoints: {
     xs: "480px",
@@ -66,7 +68,10 @@ export const GlobalStyle = createGlobalStyle`
   * {
 scroll-behavior: smooth;
 font-family: var(--font-family-body);
+box-sizing: border-box;
+ 
   }
+
 
   body {
     margin: 0;
@@ -77,7 +82,8 @@ font-family: var(--font-family-body);
     background-color: var(--color-background);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    box-sizing: border-box;
+
+
     
   }
 
