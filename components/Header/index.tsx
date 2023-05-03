@@ -134,7 +134,7 @@ const Header = () => {
       <Navigation isMenuOpen={isMenuOpen}>
         <ul>
           {menuItems.map(({ id, label }) => (
-            <li onClick={toggleMenu}>
+            <li onClick={toggleMenu} key={id}>
               <a
                 href={id}
                 className={activeLink === id ? "active" : ""}
