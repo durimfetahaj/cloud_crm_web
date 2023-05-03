@@ -12,8 +12,8 @@ export const theme = {
     },
   },
   fonts: {
-    heading: "Open Sans, sans-serif",
-    body: "Open Sans, sans-serif",
+    heading: "DM Sans, sans-serif",
+    body: "DM Sans, sans-serif",
   },
   fontSizes: {
     xs: "1rem",
@@ -65,6 +65,7 @@ export const GlobalStyle = createGlobalStyle`
 
   * {
 scroll-behavior: smooth;
+font-family: var(--font-family-body);
   }
 
   body {
