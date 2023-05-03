@@ -36,3 +36,11 @@ export const testimonialsData = [
     author: "Jane Doe",
   },
 ];
+
+export const menuItems = [
+  { id: "#home", label: "Home" },
+  { id: "#testimonials", label: "Testimonials" },
+  { id: "#features", label: "Features" },
+  { id: "#services", label: "Services" },
+  { id: "#faq", label: "Faq" },
+];
