@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const TestimonialsContainer = styled.section`
   margin: 6rem 0rem;
-  padding: 4rem 35rem;
+  padding: 4rem;
   text-align: center;
   scroll-margin-top: 5vh;
 
