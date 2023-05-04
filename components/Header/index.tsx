@@ -1,4 +1,4 @@
-import Button from "@/Button";
+import { Button } from "@chakra-ui/react";
 import { menuItems } from "data/dummy";
 import Image from "next/image";
 import React, { useState } from "react";
@@ -8,8 +8,7 @@ const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: ${({ theme }) => theme.spacing.sm};
-  background-color: ${({ theme }) => theme.colors.primary.dark};
+  background-color: ${(props) => props.theme.colors.primary.dark};
   color: ${({ theme }) => theme.colors.white};
   position: sticky;
   top: 0;
@@ -147,7 +146,7 @@ const Header = () => {
             </li>
           ))}
         </ul>
-        <Button primary>Purchase Now</Button>
+        <Button>Purchase Now</Button>
       </Navigation>
     </HeaderContainer>
   );

@@ -63,23 +63,18 @@ export const menuItems = [
 
 export const featuresData = [
   {
-    id: 0,
-    content: {
-      heading: "Unbeatable privacy & secure data storage subscription",
-      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
-      actionsText: "Secure data storage",
-    },
+    heading: "Unbeatable privacy & secure data storage subscription",
+    text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
+    actionsText: "Secure data storage",
     imageUrl: "/images/Features/privacy.png",
+    imageSize: "100%",
   },
   {
-    id: 1,
-    content: {
-      heading: "Unbeatable privacy & secure data storage subscription",
-      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
-      actionsText: "Explore all add-on",
-    },
+    heading: "Integrated with the ultimate add-on management",
+    text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
+    actionsText: "Explore all add-on",
     imageUrl: "/images/Features/add-on.png",
-    rowReverse: true,
+    imageSize: "100%",
   },
 ];
 
@@ -105,3 +100,52 @@ export const ultimateFeaturesData = [
     iconUrl: "/icons/Features/budget-icon.svg",
   },
 ];
+
+export const beyondFeaturesSection = {
+  heading: "Go beyond with the ultimate features",
+  description: "Meet with the ultimate features",
+  features: [
+    {
+      imageUrl: "/images/Features/person-img.png",
+      heading: "Simplify communications",
+      text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
+      actionsText: "Learn More",
+      imageSize: "70px",
+    },
+    {
+      imageUrl: "/images/Features/people-img.png",
+      heading: "Quick Response",
+      text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
+      actionsText: "Learn More",
+      imageSize: "70px",
+    },
+    {
+      imageUrl: "/images/Features/buildings-img.png",
+      heading: "Ultimate Org Support",
+      text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
+      actionsText: "Learn More",
+      imageSize: "70px",
+    },
+    {
+      imageUrl: "/images/Features/person-img.png",
+      heading: "Simplify communications",
+      text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
+      actionsText: "Learn More",
+      imageSize: "70px",
+    },
+    {
+      imageUrl: "/images/Features/people-img.png",
+      heading: "Quick Response",
+      text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
+      actionsText: "Learn More",
+      imageSize: "70px",
+    },
+    {
+      imageUrl: "/images/Features/buildings-img.png",
+      heading: "Ultimate Org Support",
+      text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
+      actionsText: "Learn More",
+      imageSize: "70px",
+    },
+  ],
+};

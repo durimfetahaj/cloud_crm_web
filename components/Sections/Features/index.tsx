@@ -1,27 +1,18 @@
-import { featuresData } from "data/dummy";
+import Features from "./Main";
+import UltimateFeatures from "./Ultimate";
+import BeyondFeatures from "./Beyond";
 import styled from "styled-components";
-import Feature from "../ImageWithText";
-import UltimateFeatures from "./UltimateFeatures";
 
-const FeaturesContainer = styled.section`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  max-width: 1440px;
-  scroll-margin-top: 10vh;
-`;
+const Container = styled.div``;
 
-const Features = () => {
+const index = () => {
   return (
-    <>
-      <FeaturesContainer id="features">
-        {featuresData.map((feature, index) => (
-          <Feature key={index} {...feature} />
-        ))}
-      </FeaturesContainer>
+    <Container>
+      <Features />
       <UltimateFeatures />
-    </>
+      <BeyondFeatures />
+    </Container>
   );
 };
 
-export default Features;
+export default index;

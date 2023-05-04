@@ -1,39 +1,26 @@
-import Button from "@/Button";
-import Image from "next/image";
+import {
+  Button,
+  Grid,
+  GridItem,
+  Image,
+  useBreakpointValue,
+} from "@chakra-ui/react";
 import styled from "styled-components";
 import PlayIcon from "public/icons/Features/play-icon.svg";
+import React from "react";
 
-const Container = styled.div<{ rowReverse: boolean }>`
-  display: flex;
-  flex-direction: column;
-  gap: ${({ theme }) => theme.spacing.xxl};
+const Container = styled(Grid)`
   margin-bottom: ${({ theme }) => theme.spacing.xxxl};
   padding: 0px 24px;
-  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-    flex-direction: ${({ rowReverse }) => (rowReverse ? "row-reverse" : "row")};
-  }
 `;
 
-const ImageWrapper = styled.div`
-  width: 100%;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-    width: 50%;
-  }
-
-  img {
-    width: 100%;
-    height: auto;
-  }
+const ImageWrapper = styled(GridItem)`
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
 `;
 
-const TextWrapper = styled.div`
-  width: 100%;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
-    width: 50%;
-  }
-
+const TextWrapper = styled(GridItem)`
   h3 {
     margin-bottom: 20px;
     font-size: ${(props) => props.theme.fontSizes.lg};
@@ -59,29 +46,56 @@ const TextWrapper = styled.div`
 `;
 
 type FeatureProps = {
-  content: { heading: string; text: string; actionsText: string };
   imageUrl: string;
-  id: number;
-  rowReverse?: boolean;
+  heading: string;
+  text: string;
+  actionsText: string;
+  imageSize: string;
 };
 
 const ImageWithText = ({
-  content,
-  imageUrl,
-  rowReverse = false,
-}: FeatureProps) => {
+  data,
+  templateColumns = "repeat(2, 1fr)",
+}: {
+  data: FeatureProps[];
+  templateColumns?: string;
+}) => {
+  // const columns = useBreakpointValue({
+  //   base: "repeat(2, 1fr)",
+  //   md: "repeat(1, 1fr)",
+  // });
+
   return (
-    <Container rowReverse={rowReverse}>
-      <ImageWrapper>
-        <Image alt={content.heading} src={imageUrl} height={60} width={60} />
-      </ImageWrapper>
-      <TextWrapper>
-        <h3>{content.heading}</h3>
-        <p>{content.text}</p>
-        <Button text>
-          {content.actionsText} <PlayIcon />
-        </Button>
-      </TextWrapper>
+    <Container
+      alignItems="flex-start"
+      templateColumns={templateColumns}
+      gap={30}
+    >
+      {data?.map(
+        ({ imageUrl, imageSize, heading, text, actionsText }, index) => (
+          <React.Fragment key={index}>
+            <ImageWrapper w="100%">
+              <Image
+                boxSize={imageSize}
+                objectFit="cover"
+                src={imageUrl}
+                alt={heading}
+              />
+            </ImageWrapper>
+            <TextWrapper w="100%">
+              <h3>{heading}</h3>
+              <p>{text}</p>
+              <Button
+                rightIcon={<PlayIcon />}
+                colorScheme="teal"
+                variant="link"
+              >
+                {actionsText}
+              </Button>
+            </TextWrapper>
+          </React.Fragment>
+        )
+      )}
     </Container>
   );
 };

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
-import Button from "@/Button";
 import PlayIcon from "../../public/icons/Hero/PlayIcon.svg";
+import { Button } from "@chakra-ui/react";
 
 const HeroContainer = styled.section`
   display: flex;
@@ -49,12 +49,6 @@ const HeroActions = styled.div`
   display: flex;
   justify-content: center;
   gap: 15px;
-
-  ${Button} {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
 `;
 
 const HeroMedia = styled.div`
@@ -80,8 +74,10 @@ const Hero = () => {
         </HeroHeading>
         <HeroText>A simple and powerful erp management tools</HeroText>
         <HeroActions>
-          <Button primary>Try free trial</Button>
-          <Button outlined>
+          <Button colorScheme="red" variant="solid">
+            Try free trial
+          </Button>
+          <Button>
             Discover video <PlayIcon />
           </Button>
         </HeroActions>
