@@ -36,6 +36,20 @@ export const theme = {
     lg: "1.8rem",
     xl: "3rem",
   },
+  fontWeights: {
+    thin: 100,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    bold: 700,
+    black: 900,
+  },
+  lineHeights: {
+    solid: 1,
+    title: 1.25,
+    copy: 1.5,
+    loose: 2,
+  },
   breakpoints: {
     xs: "480px",
     sm: "768px",
@@ -52,7 +66,9 @@ export const theme = {
     lg: "32px",
     xl: "48px",
     xxl: "64px",
+    xxxl: "120px",
   },
+
   borderRadius: {
     xs: "2px",
     sm: "4px",
