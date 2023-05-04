@@ -8,7 +8,7 @@ const Container = styled.div<{ rowReverse: boolean }>`
   flex-direction: column;
   gap: ${({ theme }) => theme.spacing.xxl};
   margin-bottom: ${({ theme }) => theme.spacing.xxxl};
-
+  padding: 0px 24px;
   @media (min-width: ${({ theme }) => theme.breakpoints.sm}) {
     flex-direction: ${({ rowReverse }) => (rowReverse ? "row-reverse" : "row")};
   }
@@ -22,8 +22,8 @@ const ImageWrapper = styled.div`
   }
 
   img {
-    height: 100%;
     width: 100%;
+    height: auto;
   }
 `;
 

@@ -9,10 +9,6 @@ const FeaturesContainer = styled.section`
   margin: 0 auto;
   max-width: 1440px;
   scroll-margin-top: 10vh;
-
-  @media (max-width: 768px) {
-    padding: ${({ theme }) => theme.spacing.sm};
-  }
 `;
 
 const Features = () => {
