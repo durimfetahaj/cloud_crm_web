@@ -1,5 +1,4 @@
 import { featuresData } from "data/dummy";
-import { ultimateFeaturesData } from "data/dummy";
 import styled from "styled-components";
 import Feature from "../ImageWithText";
 import UltimateFeatures from "./UltimateFeatures";

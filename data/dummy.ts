@@ -1,3 +1,9 @@
+import TaskIcon from "public/icons/Features/task-manger-icon.svg";
+import CreateIcon from "public/icons/Features/create-adjust-icon.svg";
+import OptimizerIcon from "public/icons/Features/optimizer-icon.svg";
+import BudgetIcon from "public/icons/Features/budget-icon.svg";
+import Image from "next/image";
+
 export const pricingData = [
   {
     name: "Basic",
@@ -79,12 +85,23 @@ export const featuresData = [
 
 export const ultimateFeaturesData = [
   {
-    id: 0,
-    content: {
-      heading: "Unbeatable privacy & secure data storage subscription",
-      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
-      actionsText: "Secure data storage",
-    },
-    imageUrl: "/images/Features/privacy.png",
+    label: "Task Manager",
+    content: "/images/Features/dashboard-img.png",
+    iconUrl: "/icons/Features/task-manger-icon.svg",
+  },
+  {
+    label: "Create & Adjust",
+    content: "/images/Features/dashboard-img.png",
+    iconUrl: "/icons/Features/create-adjust-icon.svg",
+  },
+  {
+    label: "Website optimizer",
+    content: "/images/Features/dashboard-img.png",
+    iconUrl: "/icons/Features/optimizer-icon.svg",
+  },
+  {
+    label: "Budget tracker",
+    content: "/images/Features/dashboard-img.png",
+    iconUrl: "/icons/Features/budget-icon.svg",
   },
 ];

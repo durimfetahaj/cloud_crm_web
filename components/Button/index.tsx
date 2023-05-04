@@ -29,7 +29,7 @@ const Button = styled.button<ButtonProps>`
     css`
       background-color: transparent;
       color: ${theme.colors.common.white};
-      border: 2px solid ${theme.colors.border};
+      border: 2px solid ${theme.colors.border.main};
     `}
 
   ${({ primary, theme }) =>
