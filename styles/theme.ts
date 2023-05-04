@@ -23,7 +23,11 @@ export const theme = {
     grey: {
       primary: "#343D48",
     },
-    border: "rgba(255, 255, 255, 0.25)",
+    border: {
+      main: "rgba(255, 255, 255, 0.25)",
+      dark: "rgba(128, 128, 128, 0.2)",
+      light: "",
+    },
   },
   fonts: {
     heading: "DM Sans, sans-serif",
@@ -118,15 +122,10 @@ box-sizing: border-box;
 
   h1 {
     font-size: var(--font-size-lg);
-    font-family: var(--font-family-heading);
-    margin: 0;
-    margin-bottom: 1rem;
-    line-height: 1.2;
   }
 
   h2 {
     font-size: var(--font-size-md);
-    font-family: var(--font-family-heading);
     margin: 0;
     margin-bottom: 1rem;
     line-height: 1.2;
@@ -136,8 +135,6 @@ box-sizing: border-box;
     font-size: var(--font-size-sm);
     font-family: var(--font-family-heading);
     margin: 0;
-    margin-bottom: 1rem;
-    line-height: 1.2;
   }
 
   h4 {
@@ -149,9 +146,8 @@ box-sizing: border-box;
   }
 
   p {
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-xs);
     margin: 0;
-    line-height: 1.5;
   }
 
 
