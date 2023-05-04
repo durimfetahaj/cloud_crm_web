@@ -107,7 +107,7 @@ const RcTabs: React.FC<Props> = ({ tabs }) => {
       </TabList>
       {tabs.map((tab, index) => (
         <TabContent key={index} active={index === activeTab}>
-          <img src={tab.content} alt={tab.label} />
+          <Image src={tab.content} alt={tab.label} height="500" width="500" />
         </TabContent>
       ))}
     </TabsWrapper>
