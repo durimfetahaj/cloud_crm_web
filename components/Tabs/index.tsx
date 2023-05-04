@@ -26,11 +26,26 @@ const slideIn = keyframes`
 const TabsWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
 `;
 
 const TabList = styled.div`
   display: flex;
   justify-content: center;
+  padding: 0px 14px;
+  margin 0;
+
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: 10vw;
+  }
+
+  @media screen and (max-width: 600px) {
+    padding-left: 20vw;
+  }
+
+ 
 `;
 
 const TabButton = styled.button<{ active: boolean }>`
@@ -48,6 +63,10 @@ const TabButton = styled.button<{ active: boolean }>`
   cursor: pointer;
   white-space: nowrap;
 
+  @media screen and (min-width: 768px) and (max-width: 768px) {
+    min-width: 300px;
+  }
+
   img {
     margin-right: 12px;
   }
@@ -62,6 +81,11 @@ const TabContent = styled.div<{ active: boolean }>`
     css`
       animation: ${slideIn} 0.5s ease-in-out;
     `}
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
 `;
 
 const RcTabs: React.FC<Props> = ({ tabs }) => {

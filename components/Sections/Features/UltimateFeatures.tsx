@@ -7,7 +7,12 @@ import { ultimateFeaturesData } from "data/dummy";
 const Container = styled.section`
   margin: 0 auto;
   background: ${({ theme }) => theme.colors.primary.light};
-  padding: 50px 900px;
+  padding: 50px 12px;
+
+  @media only screen and (min-width: 1200px) {
+    /* For screens with a minimum width of 1200px, set the padding to 200px */
+    padding: 50px 200px;
+  }
 `;
 
 type Props = {};
