@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import PlayIcon from "../../public/icons/Hero/PlayIcon.svg";
-import { Button } from "@chakra-ui/react";
+import { Button } from "@mui/material";
 
 const HeroContainer = styled.section`
   display: flex;
@@ -74,9 +74,7 @@ const Hero = () => {
         </HeroHeading>
         <HeroText>A simple and powerful erp management tools</HeroText>
         <HeroActions>
-          <Button colorScheme="red" variant="solid">
-            Try free trial
-          </Button>
+          <Button>Try free trial</Button>
           <Button>
             Discover video <PlayIcon />
           </Button>

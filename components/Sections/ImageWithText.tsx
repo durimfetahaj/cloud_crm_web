@@ -1,26 +1,32 @@
-import {
-  Button,
-  Grid,
-  GridItem,
-  Image,
-  useBreakpointValue,
-} from "@chakra-ui/react";
 import styled from "styled-components";
-import PlayIcon from "public/icons/Features/play-icon.svg";
 import React from "react";
+import { Button, Grid } from "@mui/material";
+import Image from "next/image";
 
 const Container = styled(Grid)`
   margin-bottom: ${({ theme }) => theme.spacing.xxxl};
-  padding: 0px 24px;
 `;
 
-const ImageWrapper = styled(GridItem)`
+const ImageWrapper = styled(Grid)<{ imageSize: string }>`
   display: flex;
-  justify-content: flex-end;
-  padding-top: 10px;
+  justify-content: center;
+  img {
+    width: ${({ imageSize }) => imageSize && imageSize};
+    height: ${({ imageSize }) => imageSize && imageSize};
+    margin-top: 10px;
+  }
+
+  @media (min-width: 768px) {
+    justify-content: flex-end;
+  }
 `;
 
-const TextWrapper = styled(GridItem)`
+const TextWrapper = styled(Grid)`
+  text-align: center;
+  @media (min-width: 768px) {
+    text-align: start;
+  }
+
   h3 {
     margin-bottom: 20px;
     font-size: ${(props) => props.theme.fontSizes.lg};
@@ -42,6 +48,11 @@ const TextWrapper = styled(GridItem)`
     align-items: center;
     gap: 10px;
     padding: 0px;
+    width: 100%;
+
+    @media (min-width: 768px) {
+      justify-content: flex-start;
+    }
   }
 `;
 
@@ -50,52 +61,41 @@ type FeatureProps = {
   heading: string;
   text: string;
   actionsText: string;
-  imageSize: string;
+};
+
+type ImageWithTextProps = {
+  data: FeatureProps[];
+  md?: number;
+  imageSize?: string;
+  actionsUrl: string;
 };
 
 const ImageWithText = ({
   data,
-  templateColumns = "repeat(2, 1fr)",
-}: {
-  data: FeatureProps[];
-  templateColumns?: string;
-}) => {
-  // const columns = useBreakpointValue({
-  //   base: "repeat(2, 1fr)",
-  //   md: "repeat(1, 1fr)",
-  // });
-
+  md = 6,
+  imageSize = "100%",
+  actionsUrl,
+}: ImageWithTextProps) => {
   return (
-    <Container
-      alignItems="flex-start"
-      templateColumns={templateColumns}
-      gap={30}
-    >
-      {data?.map(
-        ({ imageUrl, imageSize, heading, text, actionsText }, index) => (
-          <React.Fragment key={index}>
-            <ImageWrapper w="100%">
-              <Image
-                boxSize={imageSize}
-                objectFit="cover"
-                src={imageUrl}
-                alt={heading}
-              />
-            </ImageWrapper>
-            <TextWrapper w="100%">
-              <h3>{heading}</h3>
-              <p>{text}</p>
-              <Button
-                rightIcon={<PlayIcon />}
-                colorScheme="teal"
-                variant="link"
-              >
-                {actionsText}
-              </Button>
-            </TextWrapper>
-          </React.Fragment>
-        )
-      )}
+    <Container container columnSpacing={3} rowSpacing={12}>
+      {data?.map(({ imageUrl, heading, text, actionsText }, index) => (
+        <React.Fragment key={index}>
+          <ImageWrapper item xs={12} md={md} imageSize={imageSize}>
+            <Image src={imageUrl} alt={heading} height="50" width="50" />
+          </ImageWrapper>
+          <TextWrapper item xs={12} md={md}>
+            <h3>{heading}</h3>
+            <p>{text}</p>
+            <Button
+              endIcon={
+                <Image src={actionsUrl} alt={heading} height="14" width="14" />
+              }
+            >
+              {actionsText}
+            </Button>
+          </TextWrapper>
+        </React.Fragment>
+      ))}
     </Container>
   );
 };

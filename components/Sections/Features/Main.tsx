@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { featuresData } from "data/dummy";
+import { featuresData as data } from "data/dummy";
 import ImageWithText from "../ImageWithText";
 
 const Container = styled.section`
   margin: 0 auto;
-  background: ${({ theme }) => theme.colors.primary.light};
   padding: 50px 12px;
 
   @media only screen and (min-width: 1200px) {
@@ -19,7 +18,7 @@ type Props = {};
 const UltimateFeatures: React.FC<Props> = () => {
   return (
     <Container>
-      <ImageWithText data={featuresData} />
+      <ImageWithText data={data.features} actionsUrl={data.actionsUrl} />
     </Container>
   );
 };

@@ -1,4 +1,4 @@
-import { Button } from "@chakra-ui/react";
+import { Button } from "@mui/material";
 import { menuItems } from "data/dummy";
 import Image from "next/image";
 import React, { useState } from "react";

@@ -61,22 +61,23 @@ export const menuItems = [
   { id: "#faq", label: "Faq" },
 ];
 
-export const featuresData = [
-  {
-    heading: "Unbeatable privacy & secure data storage subscription",
-    text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
-    actionsText: "Secure data storage",
-    imageUrl: "/images/Features/privacy.png",
-    imageSize: "100%",
-  },
-  {
-    heading: "Integrated with the ultimate add-on management",
-    text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
-    actionsText: "Explore all add-on",
-    imageUrl: "/images/Features/add-on.png",
-    imageSize: "100%",
-  },
-];
+export const featuresData = {
+  actionsUrl: "/icons/Features/play-icon-dark.svg",
+  features: [
+    {
+      heading: "Unbeatable privacy & secure data storage subscription",
+      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
+      actionsText: "Secure data storage",
+      imageUrl: "/images/Features/privacy.png",
+    },
+    {
+      heading: "Integrated with the ultimate add-on management",
+      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
+      actionsText: "Explore all add-on",
+      imageUrl: "/images/Features/add-on.png",
+    },
+  ],
+};
 
 export const ultimateFeaturesData = [
   {
@@ -104,48 +105,43 @@ export const ultimateFeaturesData = [
 export const beyondFeaturesSection = {
   heading: "Go beyond with the ultimate features",
   description: "Meet with the ultimate features",
+  actionsUrl: "/icons/Features/play-icon-light.svg",
   features: [
     {
       imageUrl: "/images/Features/person-img.png",
       heading: "Simplify communications",
       text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
       actionsText: "Learn More",
-      imageSize: "70px",
     },
     {
       imageUrl: "/images/Features/people-img.png",
       heading: "Quick Response",
       text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
       actionsText: "Learn More",
-      imageSize: "70px",
     },
     {
       imageUrl: "/images/Features/buildings-img.png",
       heading: "Ultimate Org Support",
       text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
       actionsText: "Learn More",
-      imageSize: "70px",
     },
     {
       imageUrl: "/images/Features/person-img.png",
       heading: "Simplify communications",
       text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
       actionsText: "Learn More",
-      imageSize: "70px",
     },
     {
       imageUrl: "/images/Features/people-img.png",
       heading: "Quick Response",
       text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
       actionsText: "Learn More",
-      imageSize: "70px",
     },
     {
       imageUrl: "/images/Features/buildings-img.png",
       heading: "Ultimate Org Support",
       text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
       actionsText: "Learn More",
-      imageSize: "70px",
     },
   ],
 };
