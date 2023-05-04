@@ -54,3 +54,37 @@ export const menuItems = [
   { id: "#services", label: "Services" },
   { id: "#faq", label: "Faq" },
 ];
+
+export const featuresData = [
+  {
+    id: 0,
+    content: {
+      heading: "Unbeatable privacy & secure data storage subscription",
+      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
+      actionsText: "Secure data storage",
+    },
+    imageUrl: "/images/Features/privacy.png",
+  },
+  {
+    id: 1,
+    content: {
+      heading: "Unbeatable privacy & secure data storage subscription",
+      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
+      actionsText: "Explore all add-on",
+    },
+    imageUrl: "/images/Features/add-on.png",
+    rowReverse: true,
+  },
+];
+
+export const ultimateFeaturesData = [
+  {
+    id: 0,
+    content: {
+      heading: "Unbeatable privacy & secure data storage subscription",
+      text: "Our data centers have top-notch security and surveillance, with a reliable 99.9% uptime. Secure email hosting with encryption both at rest and end-to-end, along with S/MIME message encryption.",
+      actionsText: "Secure data storage",
+    },
+    imageUrl: "/images/Features/privacy.png",
+  },
+];

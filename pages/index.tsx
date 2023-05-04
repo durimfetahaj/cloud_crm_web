@@ -2,7 +2,7 @@ import Footer from "components/Footer";
 import Header from "components/Header";
 import Contact from "components/Sections/Contact";
 import Faq from "components/Sections/FAQ";
-import Features from "components/Sections/Features";
+import Features from "@/Sections/Features";
 import Hero from "components/Sections/Hero";
 import Services from "@/Sections/Services";
 import Testimonials from "components/Sections/Testimonials";
@@ -25,8 +25,8 @@ export default function Home() {
         <Hero />
         <Testimonials testimonials={testimonialsData} />
         <Features />
-        <Services plans={pricingData} />
-        <Faq />
+        {/* <Services plans={pricingData} />
+        <Faq /> */}
       </main>
       <Footer />
     </>
