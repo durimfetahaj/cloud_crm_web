@@ -8,16 +8,18 @@ type Props = {
 
 const Wrapper = styled.div`
   text-align: center;
+  margin-bottom: 60px;
 
   h3 {
-    font-size: ${(props) => props.theme.fontSizes.lg};
-    font-weight: ${(props) => props.theme.fontWeights.medium};
+    font-size: ${({ theme }) => theme.fontSizes.lg};
+    font-weight: ${({ theme }) => theme.fontWeights.medium};
+    margin-bottom: ${({ theme }) => theme.spacing.sm};
   }
 
   p {
-    font-size: ${(props) => props.theme.fontSizes.md};
-    font-weight: ${(props) => props.theme.fontWeights.regular};
-    line-height: ${(props) => props.theme.lineHeights.loose};
+    font-size: ${({ theme }) => theme.fontSizes.sm};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
+    line-height: ${({ theme }) => theme.lineHeights.loose};
     opacity: 0.7;
   }
 `;
