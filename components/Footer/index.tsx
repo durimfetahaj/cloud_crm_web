@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button, Typography } from "@mui/material";
 
 const FooterContainer = styled.footer`
   padding: 2rem;
@@ -8,7 +9,9 @@ const FooterContainer = styled.footer`
 const Footer = () => {
   return (
     <FooterContainer>
-      <p>© {new Date().getFullYear()} Next.js landing page</p>
+      <Typography variant="body1">
+        © {new Date().getFullYear()} Next.js landing page
+      </Typography>
     </FooterContainer>
   );
 };
