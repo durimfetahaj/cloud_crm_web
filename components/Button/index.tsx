@@ -1,29 +1,50 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-type ButtonProps = {
+interface ButtonProps {
   outlined?: boolean;
   fullWidth?: boolean;
   text?: boolean;
   primary?: boolean;
   onClick?: () => void;
-};
+}
 
 const Button = styled.button<ButtonProps>`
-  background-color: ${({ outlined, text, primary, theme }) =>
-    (primary && theme.colors.secondary.main) ||
-    (text && "transparent") ||
-    (outlined && "transparent")};
-  color: ${({ text, theme }) =>
-    text ? theme.colors.secondary : theme.colors.common.white};
-  border: ${({ outlined, theme }) =>
-    outlined ? `2px solid ${theme.colors.border}` : "none"};
-  border-radius: 5px;
   padding: 0.75rem 1rem;
   font-size: 1rem;
   font-weight: 700;
+  border-radius: 5px;
   cursor: pointer;
   white-space: nowrap;
-  ${({ fullWidth }) => fullWidth && `width: 100%;`}
+
+  ${({ text, theme }) =>
+    text &&
+    css`
+      background-color: transparent;
+      color: ${theme.colors.secondary.main};
+      border: none;
+    `}
+
+  ${({ outlined, theme }) =>
+    outlined &&
+    css`
+      background-color: transparent;
+      color: ${theme.colors.common.white};
+      border: 2px solid ${theme.colors.border};
+    `}
+
+  ${({ primary, theme }) =>
+    primary &&
+    css`
+      background-color: ${theme.colors.secondary.main};
+      color: ${theme.colors.common.white};
+      border: none;
+    `}
+
+  ${({ fullWidth }) =>
+    fullWidth &&
+    css`
+      width: 100%;
+    `}
 
   @media (max-width: 768px) {
     font-size: 0.9rem;
