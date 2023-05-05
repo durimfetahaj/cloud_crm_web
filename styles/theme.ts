@@ -1,12 +1,13 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
 import { globalStyles } from "./globalSyles";
+import componentsOverrides from "./overrides";
 
 let theme = createTheme({
   palette: {
     primary: {
-      main: "#2196f3",
-      dark: "#1769aa",
-      light: "#4dabf5",
+      main: "#5567FF",
+      dark: "#02162D",
+      light: "#1D2146",
     },
     secondary: {
       main: "#f50057",
@@ -14,7 +15,7 @@ let theme = createTheme({
       light: "#ff4081",
     },
     text: {
-      primary: "#333",
+      primary: "#fff",
       secondary: "#666",
       disabled: "#ccc",
     },
@@ -88,6 +89,7 @@ let theme = createTheme({
 });
 
 theme = responsiveFontSizes(theme);
+theme.components = componentsOverrides(theme);
 
 export default theme;
 export type ThemeType = typeof theme;
