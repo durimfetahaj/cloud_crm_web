@@ -6,6 +6,7 @@ import Features from "@/Sections/Features";
 import Hero from "components/Sections/Hero";
 import Services from "@/Sections/Services";
 import Testimonials from "components/Sections/Testimonials";
+import AppDownload from "components/Sections/AppDownload";
 import { pricingData, testimonialsData } from "data/dummy";
 import Head from "next/head";
 
@@ -26,6 +27,7 @@ export default function Home() {
         <Testimonials testimonials={testimonialsData} />
         <Features />
         <Services />
+        <AppDownload />
         {/* <Faq /> */}
       </main>
       <Footer />

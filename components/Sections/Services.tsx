@@ -6,20 +6,20 @@ import ImageWithText from "./ImageWithText";
 
 const Container = styled.section`
   margin: 0 auto;
-  padding: 50px 12px;
+  padding: 60px 12px;
   max-width: 1260px;
   scroll-margin-top: 5vh;
 `;
 
 type Props = {};
 
-const Beyond: React.FC<Props> = () => {
+const Services: React.FC<Props> = () => {
   return (
     <Container id="services">
       <SectionHeading title={data.heading} description={data.description} />
       <ImageWithText
         data={data?.features}
-        actionsUrl={data?.actionsUrl}
+        actionsData={data?.actionsData}
         imageColumnSize={1}
         textColumnSize={3}
         imageSize="70px"
@@ -29,4 +29,4 @@ const Beyond: React.FC<Props> = () => {
   );
 };
 
-export default Beyond;
+export default Services;

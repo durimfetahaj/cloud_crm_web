@@ -65,7 +65,12 @@ export const menuItems = [
 ];
 
 export const featuresData = {
-  actionsUrl: "/icons/Features/play-icon-dark.svg",
+  actionsData: [
+    {
+      imageSrc: "/icons/Features/play-icon-dark.svg",
+      linkSrc: "#",
+    },
+  ],
   features: [
     {
       heading: "Unbeatable privacy & secure data storage subscription",
@@ -113,7 +118,9 @@ export const ultimateFeaturesData = {
 export const servicesSection = {
   heading: "Go beyond with the ultimate features",
   description: "Meet with the ultimate features",
-  actionsUrl: "/icons/Features/play-icon-light.svg",
+  actionsData: [
+    { imageSrc: "/icons/Features/play-icon-light.svg", linkSrc: "#" },
+  ],
   features: [
     {
       imageUrl: "/images/Features/person-img.png",
@@ -150,6 +157,27 @@ export const servicesSection = {
       heading: "Ultimate Org Support",
       text: "Get your info tests delivered at home and collect a sample from the your progress tests.",
       actionsText: "Learn More",
+    },
+  ],
+};
+
+export const appDownloadSectionData = {
+  actionsData: [
+    {
+      imageSrc: "/images/AppDownload/iOS.svg",
+      linkSrc: "https://www.apple.com/app-store/",
+    },
+    {
+      imageSrc: "images/AppDownload/google.svg",
+      linkSrc: "https://play.google.com/store/games?pli=1",
+    },
+  ],
+  appDownload: [
+    {
+      heading:
+        "Beyond on limitation with our android and iOS mobile application",
+      text: "Manage your business communications even when you're away from your desk. Native mobile apps for Mail, Mail Admin, and Streams make staying in touch on the go easier and effortless. e-Discovery helps discover such retained emails quickly.",
+      imageUrl: "/images/AppDownload/mobileApp.svg",
     },
   ],
 };

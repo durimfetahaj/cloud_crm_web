@@ -47,11 +47,20 @@ const TextWrapper = styled(Grid)`
   }
 `;
 
+const LinkImgWrapper = styled.div`
+  display: flex-wrap;
+`;
+
 type FeatureProps = {
   imageUrl: string;
   heading: string;
   text: string;
-  actionsText: string;
+  actionsText?: string;
+};
+
+type ActionsDataProps = {
+  imageSrc: string;
+  linkSrc: string;
 };
 
 type ImageWithTextProps = {
@@ -59,7 +68,7 @@ type ImageWithTextProps = {
   imageColumnSize?: number;
   textColumnSize?: number;
   imageSize?: string;
-  actionsUrl: string;
+  actionsData: ActionsDataProps[];
   fontSize?: "small" | "medium" | "large";
 };
 
@@ -68,7 +77,7 @@ const ImageWithText = ({
   imageColumnSize = 6,
   textColumnSize = 6,
   imageSize = "100%",
-  actionsUrl,
+  actionsData,
   fontSize,
 }: ImageWithTextProps) => {
   return (
@@ -84,13 +93,34 @@ const ImageWithText = ({
               {heading}
             </Typography>
             <Typography variant="body2">{text}</Typography>
-            <Button
-              endIcon={
-                <Image src={actionsUrl} alt={heading} height="14" width="14" />
-              }
-            >
-              {actionsText}
-            </Button>
+            {actionsData.length > 1 ? (
+              <LinkImgWrapper>
+                {actionsData?.map(({ imageSrc, linkSrc }, id) => (
+                  <a href={linkSrc} target="_blank" key={id}>
+                    <Image
+                      src={imageSrc}
+                      alt={heading}
+                      height="50"
+                      width="160"
+                    />
+                  </a>
+                ))}
+              </LinkImgWrapper>
+            ) : (
+              <Button
+                endIcon={
+                  <Image
+                    src={actionsData[0].imageSrc}
+                    alt={heading}
+                    height="14"
+                    width="14"
+                  />
+                }
+                href={actionsData[0].linkSrc}
+              >
+                {actionsText}
+              </Button>
+            )}
           </TextWrapper>
         </React.Fragment>
       ))}
