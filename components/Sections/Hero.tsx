@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Image from "next/image";
 import PlayIcon from "../../public/icons/Hero/PlayIcon.svg";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 
 const HeroContainer = styled.section`
   display: flex;
@@ -9,7 +9,7 @@ const HeroContainer = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 50px 12px 0px 12px;
-  background-color: ${({ theme }) => theme.colors.primary.dark};
+  background-color: ${({ theme }) => theme.palette.primary.dark};
   text-align: center;
   height: 90vh;
   @media (max-width: 768px) {
@@ -19,29 +19,24 @@ const HeroContainer = styled.section`
 `;
 
 const HeroContent = styled.div`
-  color: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.palette.background};
   max-width: 700px;
 `;
 
-const HeroHeading = styled.h1`
-  font-weight: bold;
+const HeroHeading = styled(Typography)`
   margin-bottom: 2rem;
-  font-size: ${({ theme }) => theme.fontSizes.xl};
 
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.fontSizes.md};
     margin-bottom: 1rem;
   }
 `;
 
-const HeroText = styled.p`
-  font-size: ${({ theme }) => theme.fontSizes.sm};
+const HeroText = styled(Typography)`
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 2rem;
-
   @media (max-width: 768px) {
-    font-size: ${({ theme }) => theme.fontSizes.xs};
+    font-size: 12px;
   }
 `;
 
@@ -49,6 +44,11 @@ const HeroActions = styled.div`
   display: flex;
   justify-content: center;
   gap: 15px;
+
+  .MuiButton-outlined {
+    border-color: #ffffff24;
+    color: #fff;
+  }
 `;
 
 const HeroMedia = styled.div`
@@ -69,14 +69,16 @@ const Hero = () => {
   return (
     <HeroContainer id="home">
       <HeroContent>
-        <HeroHeading>
+        <HeroHeading variant="h1">
           Cloud CRM Software for entry level business enterprise
         </HeroHeading>
-        <HeroText>A simple and powerful erp management tools</HeroText>
+        <HeroText variant="body1">
+          A simple and powerful erp management tools
+        </HeroText>
         <HeroActions>
-          <Button>Try free trial</Button>
-          <Button>
-            Discover video <PlayIcon />
+          <Button variant="contained">Try free trial</Button>
+          <Button endIcon={<PlayIcon />} variant="outlined">
+            Discover video
           </Button>
         </HeroActions>
       </HeroContent>
