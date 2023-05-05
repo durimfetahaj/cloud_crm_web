@@ -1,6 +1,7 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-import { globalStyles } from "./globalSyles";
+// import { muiGlobalStyles } from "./globalSyles";
 import componentsOverrides from "./overrides";
+import { grey } from "@mui/material/colors";
 
 let theme = createTheme({
   palette: {
@@ -13,6 +14,22 @@ let theme = createTheme({
       main: "#f50057",
       dark: "#c51162",
       light: "#ff4081",
+    },
+    grey: {
+      50: grey[50],
+      100: grey[100],
+      200: grey[200],
+      300: grey[300],
+      400: grey[400],
+      500: grey[500],
+      600: grey[600],
+      700: grey[700],
+      800: grey[800],
+      900: grey[900],
+      A100: grey.A100,
+      A200: grey.A200,
+      A400: grey.A400,
+      A700: grey.A700,
     },
     text: {
       primary: "#fff",
@@ -81,9 +98,7 @@ let theme = createTheme({
   },
   components: {
     MuiCssBaseline: {
-      styleOverrides: {
-        ...globalStyles,
-      },
+      // styleOverrides: muiGlobalStyles,
     },
   },
 });
