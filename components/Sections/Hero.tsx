@@ -12,6 +12,7 @@ const HeroContainer = styled.section`
   background-color: ${({ theme }) => theme.palette.primary.dark};
   text-align: center;
   height: 90vh;
+
   @media (max-width: 768px) {
     height: 60vh;
     padding-top: 0px;
@@ -35,6 +36,7 @@ const HeroText = styled(Typography)`
   line-height: 1.5;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 2rem;
+
   @media (max-width: 768px) {
     font-size: 12px;
   }
@@ -45,9 +47,16 @@ const HeroActions = styled.div`
   justify-content: center;
   gap: 15px;
 
-  .MuiButton-outlined {
-    border-color: #ffffff24;
-    color: #fff;
+  button {
+    &:first-of-type {
+      background-color: ${({ theme }) => theme.palette.primary.main};
+      color: #fff;
+    }
+
+    &:last-of-type {
+      border-color: #ffffff24;
+      color: #fff;
+    }
   }
 `;
 
