@@ -24,9 +24,9 @@ export default function Home() {
       <main>
         <Hero />
         <Testimonials testimonials={testimonialsData} />
-        {/* <Features /> */}
-        {/* <Services plans={pricingData} />
-        <Faq /> */}
+        <Features />
+        <Services />
+        {/* <Faq /> */}
       </main>
       <Footer />
     </>

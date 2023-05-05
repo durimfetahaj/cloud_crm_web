@@ -33,7 +33,7 @@ const TabList = styled.div`
   display: flex;
   justify-content: center;
   padding: 0px 14px;
-  margin 0;
+  margin: 0;
 
   @media screen and (max-width: 768px) {
     flex-wrap: wrap;
@@ -44,15 +44,13 @@ const TabList = styled.div`
   @media screen and (max-width: 600px) {
     padding-left: 20vw;
   }
-
- 
 `;
 
-const TabButton = styled.button<{ active: boolean }>`
+const TabButton = styled.button<{ active: boolean | undefined }>`
   margin: 0 10px;
   padding: 12px 16px;
   border: ${({ active, theme }) =>
-    active ? `1px solid ${theme.colors.border.dark}` : "none"};
+    active ? `1px solid ${theme.palette.grey[200]}` : "none"};
   background-color: ${({ active }) => (active ? "white" : "transparent")};
   color: ${({ active }) => (active ? "black" : "inherit")};
   font-size: 16px;
@@ -88,7 +86,17 @@ const TabContent = styled.div<{ active: boolean }>`
   }
 `;
 
-const RcTabs: React.FC<Props> = ({ tabs }) => {
+export interface UltimateFeature {
+  label: string;
+  content: string;
+  iconUrl: string;
+}
+
+type RcTabsProps = {
+  tabs: UltimateFeature[];
+};
+
+const RcTabs: React.FC<Props> = ({ tabs }: RcTabsProps) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (

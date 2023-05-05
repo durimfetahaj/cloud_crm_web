@@ -26,7 +26,7 @@ const HeroContent = styled.div`
 
 const HeroHeading = styled(Typography)`
   margin-bottom: 2rem;
-
+  color: ${({ theme }) => theme.palette.text.secondary};
   @media (max-width: 768px) {
     margin-bottom: 1rem;
   }
@@ -34,7 +34,7 @@ const HeroHeading = styled(Typography)`
 
 const HeroText = styled(Typography)`
   line-height: 1.5;
-  color: rgba(255, 255, 255, 0.7);
+  color: ${({ theme }) => theme.palette.grey[400]};
   margin-bottom: 2rem;
 
   @media (max-width: 768px) {

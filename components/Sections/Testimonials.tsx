@@ -4,14 +4,13 @@ import styled from "styled-components";
 import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { useMediaQuery, useTheme } from "@mui/material";
+import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
 const TestimonialsContainer = styled.section`
   margin: 6rem 0rem;
   padding: 1rem;
   text-align: center;
   scroll-margin-top: 5vh;
-  color: black;
 
   @media (min-width: 1440px) {
     padding: 4rem 20rem;
@@ -25,7 +24,7 @@ const TestimonialItem = styled.div`
   gap: 30px;
 `;
 
-const TestimonialText = styled.p`
+const TestimonialText = styled(Typography)`
   margin-bottom: 1rem;
   line-height: 30px;
   font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
@@ -82,10 +81,14 @@ const Testimonial = ({
     </ItemMedia>
     <ItemContent>
       <Image alt={author.name} src={companyUrl} height={30} width={100} />
-      <TestimonialText>{text}</TestimonialText>
+      <TestimonialText variant="h6">{text}</TestimonialText>
       <TestimonialAuthor>
-        <p className="name">{author.name}</p>
-        <p className="role">{author.role}</p>
+        <Typography variant="body2" className="name">
+          {author.name}
+        </Typography>
+        <Typography variant="body2" className="role">
+          {author.role}
+        </Typography>
       </TestimonialAuthor>
     </ItemContent>
   </TestimonialItem>

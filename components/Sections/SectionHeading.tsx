@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
@@ -11,15 +12,12 @@ const Wrapper = styled.div`
   margin-bottom: 60px;
 
   h3 {
-    font-size: ${({ theme }) => theme.fontSizes.lg};
-    font-weight: ${({ theme }) => theme.fontWeights.medium};
+    font-weight: ${({ theme }) => theme.typography.fontWeightMedium};
     margin-bottom: ${({ theme }) => theme.spacing.sm};
   }
 
   p {
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    font-weight: ${({ theme }) => theme.fontWeights.regular};
-    line-height: ${({ theme }) => theme.lineHeights.loose};
+    font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
     opacity: 0.7;
   }
 `;
@@ -27,8 +25,8 @@ const Wrapper = styled.div`
 function SectionHeading({ title = "", description = "" }: Props) {
   return (
     <Wrapper>
-      <h3>{title}</h3>
-      <p>{description}</p>
+      <Typography variant="h3">{title}</Typography>
+      <Typography variant="body2">{description}</Typography>
     </Wrapper>
   );
 }

@@ -1,18 +1,20 @@
-import Features from "./Main";
-import UltimateFeatures from "./Ultimate";
-import BeyondFeatures from "./Beyond";
 import styled from "styled-components";
+import Features from "./Features";
+import UltimateFeatures from "./UltimateFeatures";
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+`;
 
-const index = () => {
+const FeaturesSection = () => {
   return (
     <Container>
       <Features />
       <UltimateFeatures />
-      <BeyondFeatures />
     </Container>
   );
 };
 
-export default index;
+export default FeaturesSection;

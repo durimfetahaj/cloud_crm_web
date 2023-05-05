@@ -1,9 +1,3 @@
-import TaskIcon from "public/icons/Features/task-manger-icon.svg";
-import CreateIcon from "public/icons/Features/create-adjust-icon.svg";
-import OptimizerIcon from "public/icons/Features/optimizer-icon.svg";
-import BudgetIcon from "public/icons/Features/budget-icon.svg";
-import Image from "next/image";
-
 export const pricingData = [
   {
     name: "Basic",
@@ -88,30 +82,35 @@ export const featuresData = {
   ],
 };
 
-export const ultimateFeaturesData = [
-  {
-    label: "Task Manager",
-    content: "/images/Features/dashboard-img.png",
-    iconUrl: "/icons/Features/task-manger-icon.svg",
-  },
-  {
-    label: "Create & Adjust",
-    content: "/images/Features/dashboard-img.png",
-    iconUrl: "/icons/Features/create-adjust-icon.svg",
-  },
-  {
-    label: "Website optimizer",
-    content: "/images/Features/dashboard-img.png",
-    iconUrl: "/icons/Features/optimizer-icon.svg",
-  },
-  {
-    label: "Budget tracker",
-    content: "/images/Features/dashboard-img.png",
-    iconUrl: "/icons/Features/budget-icon.svg",
-  },
-];
+export const ultimateFeaturesData = {
+  heading: "Ultimate features in one dashboard",
+  description:
+    "The most intuitive design toolbox to create your next project. From ideation to user testing.",
+  data: [
+    {
+      label: "Task Manager",
+      content: "/images/Features/dashboard-img.png",
+      iconUrl: "/icons/Features/task-manger-icon.svg",
+    },
+    {
+      label: "Create & Adjust",
+      content: "/images/Features/dashboard-img.png",
+      iconUrl: "/icons/Features/create-adjust-icon.svg",
+    },
+    {
+      label: "Website optimizer",
+      content: "/images/Features/dashboard-img.png",
+      iconUrl: "/icons/Features/optimizer-icon.svg",
+    },
+    {
+      label: "Budget tracker",
+      content: "/images/Features/dashboard-img.png",
+      iconUrl: "/icons/Features/budget-icon.svg",
+    },
+  ],
+};
 
-export const beyondFeaturesSection = {
+export const servicesSection = {
   heading: "Go beyond with the ultimate features",
   description: "Meet with the ultimate features",
   actionsUrl: "/icons/Features/play-icon-light.svg",

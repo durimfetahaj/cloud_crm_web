@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
@@ -13,7 +14,7 @@ const ContactContainer = styled.section`
   }
 `;
 
-const ContactHeading = styled.h2`
+const ContactHeading = styled(Typography)`
   font-size: ${(props) => props.theme.fontSizes.lg};
   font-family: ${(props) => props.theme.fonts.heading};
   margin-bottom: ${(props) => props.theme.spacing.lg};
@@ -57,7 +58,7 @@ const ContactButton = styled.button`
 function Contact() {
   return (
     <ContactContainer>
-      <ContactHeading>Contact Us</ContactHeading>
+      <ContactHeading variant="h2">Contact Us</ContactHeading>
       <ContactForm>
         <ContactLabel htmlFor="name">Name</ContactLabel>
         <ContactInput type="text" id="name" />
