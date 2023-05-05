@@ -51,6 +51,15 @@ export const testimonialsData = [
     avatarUrl: "/images/Testimonials/author_2.svg",
     companyUrl: "/images/Testimonials/company_2.svg",
   },
+  {
+    text: "Amazing service complementory. Totally a different experience to working with this mind blowing team. Don’t want to miss to work again.",
+    author: {
+      name: "Jane Doe",
+      role: "Vice President - Talent & Acquisition",
+    },
+    avatarUrl: "/images/Testimonials/author_2.svg",
+    companyUrl: "/images/Testimonials/company_2.svg",
+  },
 ];
 
 export const menuItems = [

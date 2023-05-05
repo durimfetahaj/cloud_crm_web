@@ -23,7 +23,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        {/* <Testimonials testimonials={testimonialsData} /> */}
+        <Testimonials testimonials={testimonialsData} />
         {/* <Features /> */}
         {/* <Services plans={pricingData} />
         <Faq /> */}

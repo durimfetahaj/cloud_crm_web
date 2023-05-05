@@ -1,17 +1,20 @@
+import React from "react";
 import Slider from "react-slick";
 import styled from "styled-components";
+import Image from "next/image";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Image from "next/image";
+import { useMediaQuery, useTheme } from "@mui/material";
 
 const TestimonialsContainer = styled.section`
   margin: 6rem 0rem;
-  padding: 4rem;
+  padding: 1rem;
   text-align: center;
   scroll-margin-top: 5vh;
+  color: black;
 
-  @media (max-width: 768px) {
-    padding: ${({ theme }) => theme.spacing.sm};
+  @media (min-width: 1440px) {
+    padding: 4rem 20rem;
   }
 `;
 
@@ -25,10 +28,14 @@ const TestimonialItem = styled.div`
 const TestimonialText = styled.p`
   margin-bottom: 1rem;
   line-height: 30px;
-  font-size: ${({ theme }) => theme.fontSizes.sm};
-  font-weight: 500;
-  max-width: 600px;
+  font-weight: ${({ theme }) => theme.typography.fontWeightRegular};
+  max-width: 250px;
+
+  @media (min-width: 1440px) {
+    max-width: 500px;
+  }
 `;
+
 const ItemMedia = styled.div`
   padding-top: 40px;
 `;
@@ -38,14 +45,12 @@ const TestimonialAuthor = styled.div`
   flex-direction: column;
 
   .name {
-    font-size: ${({ theme }) => theme.fontSizes.sm};
-    font-weight: 500;
-    margin-bottom: ${({ theme }) => theme.spacing.xs};
+    font-weight: ${({ theme }) => theme.typography.fontWeightMedium};
+    margin-bottom: 12px;
   }
   .role {
-    font-size: ${({ theme }) => theme.fontSizes.xs};
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.grey.primary};
+    color: ${({ theme }) => theme.palette.grey[600]};
   }
 `;
 
@@ -57,7 +62,10 @@ const ItemContent = styled.div`
 
 type TestimonialProps = {
   text: string;
-  author: { name: string; role: string };
+  author: {
+    name: string;
+    role: string;
+  };
   avatarUrl: string;
   companyUrl: string;
 };
@@ -67,47 +75,50 @@ const Testimonial = ({
   author,
   avatarUrl,
   companyUrl,
-}: TestimonialProps) => {
-  return (
-    <TestimonialItem>
-      <ItemMedia>
-        <Image alt={author.name} src={avatarUrl} height={60} width={60} />
-      </ItemMedia>
-      <ItemContent>
-        <Image alt={author.name} src={companyUrl} height={30} width={100} />
-        <TestimonialText>{text}</TestimonialText>
-        <TestimonialAuthor>
-          <p className="name">{author.name}</p>
-          <p className="role">{author.role}</p>
-        </TestimonialAuthor>
-      </ItemContent>
-    </TestimonialItem>
-  );
-};
+}: TestimonialProps) => (
+  <TestimonialItem>
+    <ItemMedia>
+      <Image alt={author.name} src={avatarUrl} height={60} width={60} />
+    </ItemMedia>
+    <ItemContent>
+      <Image alt={author.name} src={companyUrl} height={30} width={100} />
+      <TestimonialText>{text}</TestimonialText>
+      <TestimonialAuthor>
+        <p className="name">{author.name}</p>
+        <p className="role">{author.role}</p>
+      </TestimonialAuthor>
+    </ItemContent>
+  </TestimonialItem>
+);
 
 type TestimonialsProps = {
   testimonials: TestimonialProps[];
 };
 
 const Testimonials = ({ testimonials }: TestimonialsProps) => {
-  //todo: make two slides on large screen and one on small screen
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: false,
-  };
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const slidesToShow = isSmallScreen ? 1 : 2;
+
+  const settings = React.useMemo(
+    () => ({
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow,
+      slidesToScroll: 1,
+      arrows: false,
+    }),
+    [slidesToShow]
+  );
+
   return (
     <TestimonialsContainer id="testimonials">
-      <div>
-        <Slider {...settings}>
-          {testimonials.map((testimonial, index) => (
-            <Testimonial key={index} {...testimonial} />
-          ))}
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        {testimonials.map((testimonial, index) => (
+          <Testimonial key={index} {...testimonial} />
+        ))}
+      </Slider>
     </TestimonialsContainer>
   );
 };
