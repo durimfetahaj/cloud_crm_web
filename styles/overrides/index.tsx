@@ -1,7 +1,5 @@
 import Button from "./Button";
 
-export default function componentsOverrides(theme: any) {
-  return Object.assign(Button(theme), {
-    // Other overrides for components can be added here
-  });
+export default function ComponentsOverrides(theme: any) {
+  return Object.assign(Button(theme));
 }

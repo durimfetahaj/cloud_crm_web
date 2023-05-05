@@ -1,6 +1,5 @@
 import { createTheme, responsiveFontSizes } from "@mui/material/styles";
-// import { muiGlobalStyles } from "./globalSyles";
-import componentsOverrides from "./overrides";
+import componentsOverride from "./overrides";
 import { greyColors } from "./palette";
 
 let theme = createTheme({
@@ -100,15 +99,10 @@ let theme = createTheme({
       xl: 1536,
     },
   },
-  components: {
-    MuiCssBaseline: {
-      // styleOverrides: muiGlobalStyles,
-    },
-  },
 });
 
 theme = responsiveFontSizes(theme);
-theme.components = componentsOverrides(theme);
+theme.components = componentsOverride(theme);
 
 export default theme;
 export type ThemeType = typeof theme;

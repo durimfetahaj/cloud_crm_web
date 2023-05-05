@@ -1,7 +1,9 @@
 export default function Button(theme: any) {
   return {
     MuiButtonBase: {
-      defaultProps: {},
+      defaultProps: {
+        disableRipple: true,
+      },
     },
     MuiButton: {
       styleOverrides: {
