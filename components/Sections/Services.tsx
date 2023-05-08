@@ -22,7 +22,7 @@ const Services: React.FC<Props> = () => {
         actionsData={data?.actionsData}
         imageColumnSize={1}
         textColumnSize={3}
-        imageSize="70px"
+        imagesize="70px"
         fontSize="medium"
       />
     </Container>

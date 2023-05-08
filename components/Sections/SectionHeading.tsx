@@ -3,8 +3,10 @@ import React from "react";
 import styled from "styled-components";
 
 type Props = {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
+  fontSize?: "small" | "medium" | "large";
+  style?: React.CSSProperties;
 };
 
 const Wrapper = styled.div`
@@ -22,11 +24,20 @@ const Wrapper = styled.div`
   }
 `;
 
-function SectionHeading({ title = "", description = "" }: Props) {
+function SectionHeading({
+  title = "",
+  description = "",
+  fontSize,
+  style,
+}: Props) {
   return (
-    <Wrapper>
-      <Typography variant="h3">{title}</Typography>
-      <Typography variant="body2">{description}</Typography>
+    <Wrapper style={style}>
+      <Typography variant={fontSize === "medium" ? "h6" : "h3"}>
+        {title}
+      </Typography>
+      <Typography variant={fontSize === "medium" ? "body2" : "body2"}>
+        {description}
+      </Typography>
     </Wrapper>
   );
 }

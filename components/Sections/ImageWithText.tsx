@@ -5,12 +5,12 @@ import Image from "next/image";
 
 const Container = styled(Grid)``;
 
-const ImageWrapper = styled(Grid)<{ imageSize: string }>`
+const ImageWrapper = styled(Grid)<{ imagesize: string }>`
   display: flex;
   justify-content: center;
   img {
-    width: ${({ imageSize }) => imageSize};
-    height: ${({ imageSize }) => imageSize};
+    width: ${({ imagesize }) => imagesize};
+    height: ${({ imagesize }) => imagesize};
   }
 `;
 
@@ -67,7 +67,7 @@ type ImageWithTextProps = {
   data: FeatureProps[];
   imageColumnSize?: number;
   textColumnSize?: number;
-  imageSize?: string;
+  imagesize?: string;
   actionsData: ActionsDataProps[];
   fontSize?: "small" | "medium" | "large";
 };
@@ -76,7 +76,7 @@ const ImageWithText = ({
   data,
   imageColumnSize = 6,
   textColumnSize = 6,
-  imageSize = "100%",
+  imagesize = "100%",
   actionsData,
   fontSize,
 }: ImageWithTextProps) => {
@@ -84,7 +84,7 @@ const ImageWithText = ({
     <Container container columnSpacing={3} rowSpacing={{ xs: 5, md: 12 }}>
       {data?.map(({ imageUrl, heading, text, actionsText }, index) => (
         <React.Fragment key={index}>
-          <ImageWrapper item xs={12} md={imageColumnSize} imageSize={imageSize}>
+          <ImageWrapper item xs={12} md={imageColumnSize} imagesize={imagesize}>
             <Image src={imageUrl} alt={heading} height="50" width="50" />
           </ImageWrapper>
 

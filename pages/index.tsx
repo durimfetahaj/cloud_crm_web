@@ -1,6 +1,5 @@
 import Footer from "components/Footer";
 import Header from "components/Header";
-import Contact from "components/Sections/Contact";
 import Faq from "components/Sections/FAQ";
 import Features from "@/Sections/Features";
 import Hero from "components/Sections/Hero";
@@ -28,7 +27,7 @@ export default function Home() {
         <Features />
         <Services />
         <AppDownload />
-        {/* <Faq /> */}
+        <Faq />
       </main>
       <Footer />
     </>
