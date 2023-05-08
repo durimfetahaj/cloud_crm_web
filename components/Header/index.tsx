@@ -1,17 +1,10 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import {
-  AppBar,
-  Toolbar,
-  IconButton,
-  Drawer,
-  ListItemText,
-  Button,
-} from "@mui/material";
-import Image from "next/image";
+import { AppBar, Toolbar, IconButton, Drawer, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import { menuItems } from "data/dummy";
+import Logo from "@/Logo";
 
 const StyledAppBar = styled(AppBar)`
   justify-content: center;
@@ -23,17 +16,12 @@ const StyledAppBar = styled(AppBar)`
 const StyledToolbar = styled(Toolbar)`
   display: flex;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 16px;
   width: 100%;
 
-  @media (min-width: 900px) {
-    justify-content: center;
-  }
-`;
-
-const Logo = styled.div`
-  @media (min-width: 900px) {
-    margin-right: 100px;
+  @media (min-width: 1440px) {
+    justify-content: space-around;
+    padding: 0 120px;
   }
 `;
 
@@ -75,7 +63,7 @@ const NavItem = styled.li`
     transition: all 0.3s ease;
 
     &:hover {
-      color: ${({ theme }) => theme.palette.secondary};
+      color: ${({ theme }) => theme.palette.primary.main};
     }
   }
 `;
@@ -105,12 +93,11 @@ const DrawerContent = styled.div`
     li {
       width: 100%;
       border-top: 1px solid #deeaff;
-      padding: 12px;
+      padding: 10px;
       a {
-        color: black;
+        color: ${({ theme }) => theme.palette.text.primary};
       }
     }
-
     li:last-child {
       border-bottom: 1px solid #deeaff;
     }
@@ -152,15 +139,7 @@ const NavigationBar = () => {
   return (
     <StyledAppBar position="fixed">
       <StyledToolbar>
-        <Logo>
-          <Image
-            src="/images/logo.svg"
-            alt="Logo"
-            width={200}
-            height={40}
-            priority
-          />
-        </Logo>
+        <Logo imageUrl="/images/logo.svg" />
         <Navigation>
           <NavList>
             {menuItems.map(({ label, id }) => (
@@ -172,7 +151,7 @@ const NavigationBar = () => {
                     setActiveLink(id);
                   }}
                 >
-                  <ListItemText primary={label} />
+                  {label}
                 </a>
               </NavItem>
             ))}
@@ -181,17 +160,12 @@ const NavigationBar = () => {
         <MenuButton edge="start" color="inherit" onClick={handleMenuOpen}>
           <MenuIcon />
         </MenuButton>
+
+        {/* Mobile navigation */}
         <Drawer anchor="right" open={isMenuOpen} onClose={handleMenuClose}>
           <DrawerContent>
             <DrawerHeader>
-              <Logo>
-                <Image
-                  src="/images/logo-dark.svg"
-                  alt="Logo"
-                  width={200}
-                  height={40}
-                />
-              </Logo>
+              <Logo imageUrl="/images/logo-dark.svg" />
               <IconButton
                 onClick={() => setIsMenuOpen((isMenuOpen) => !isMenuOpen)}
               >
@@ -211,7 +185,7 @@ const NavigationBar = () => {
                       setActiveLink(id);
                     }}
                   >
-                    <ListItemText primary={label} />
+                    {label}
                   </a>
                 </NavItem>
               ))}
