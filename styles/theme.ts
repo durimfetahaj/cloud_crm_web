@@ -26,7 +26,7 @@ let theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Roboto, sans-serif",
+    fontFamily: "DM Sans, sans-serif",
     fontSize: 16,
     fontWeightRegular: 400,
     fontWeightMedium: 500,
