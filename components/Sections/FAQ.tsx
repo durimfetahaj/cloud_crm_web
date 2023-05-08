@@ -10,11 +10,6 @@ const FaqContainer = styled.section`
   hr {
     border-top: 2px solid;
     margin: 40px 0px;
-    max-width: 90%;
-
-    @media (max-width: 768px) {
-      max-width: 100%;
-    }
   }
 `;
 
@@ -27,12 +22,12 @@ const Faq = () => {
       />
       <Grid container>
         {data.questions?.map((question, index) => (
-          <Grid item xs={12} md={6} key={index} px={"12px"}>
+          <Grid item xs={12} md={6} key={index} px={{ xs: 3, md: 5 }}>
             <SectionHeading
               title={question.question}
               description={question.answer}
               fontSize="medium"
-              style={{ textAlign: "left", marginBottom: 0, maxWidth: "90%" }}
+              style={{ textAlign: "left", marginBottom: 0 }}
             />
             <hr />
           </Grid>
