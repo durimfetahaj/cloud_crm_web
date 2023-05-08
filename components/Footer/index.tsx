@@ -4,7 +4,7 @@ import { footerSectionData as data } from "data/dummy";
 import Logo from "@/Logo";
 
 const FooterContainer = styled.footer`
-  padding: 2rem;
+  padding: 2rem 0.8rem;
   margin: 100px auto;
   text-align: center;
   background: ${({ theme }) => theme.palette.secondary.light};
@@ -47,15 +47,21 @@ const CopyrightsWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: column;
+  gap: 10px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 
 const Footer = () => {
   return (
     <FooterContainer>
       <Container style={{ maxWidth: 1440 }}>
-        <Grid container spacing={2}>
+        <Grid container spacing={5}>
           {data.map(({ heading, links }, index) => (
-            <Grid item xs={12} md={2.4} key={index}>
+            <Grid item xs={6} md={2.4} key={index}>
               <FooterListTitle variant="h5">{heading}</FooterListTitle>
               <FooterList>
                 {links.map((link, index) => (
