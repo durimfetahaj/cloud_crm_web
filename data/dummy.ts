@@ -225,3 +225,50 @@ export const faqSectionData = {
     },
   ],
 };
+
+export const footerSectionData = [
+  {
+    heading: "Company",
+    links: ["About", "Affiliate", "Careers & Culture", "Blog", "Press"],
+  },
+  {
+    heading: "About Us",
+    links: [
+      "Support Center",
+      "Customer Support",
+      "About Us",
+      "Copyright",
+      "Popular Campaign",
+      "Press",
+    ],
+  },
+  {
+    heading: "Our Information",
+    links: [
+      "Return Policy",
+      "Privacy Policy",
+      "Terms & Conditions",
+      "Site Map",
+      "Store Hours",
+    ],
+  },
+  {
+    heading: "My Account",
+    links: [
+      "Press inquiries",
+      "Social media",
+      "directories",
+      "Images & B-roll",
+      "Permissions",
+    ],
+  },
+  {
+    heading: "Policy",
+    links: [
+      "Application security",
+      "Software principles",
+      "Unwanted software policy",
+      "Responsible supply chain",
+    ],
+  },
+];
