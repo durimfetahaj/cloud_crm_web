@@ -8,14 +8,14 @@ const HeroContainer = styled.section`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 50px 12px 0px 12px;
+  padding: 0px 12px;
   background-color: ${({ theme }) => theme.palette.secondary.main};
   text-align: center;
-  height: 90vh;
+  height: 70vh;
 
-  @media (max-width: 768px) {
-    height: 60vh;
-    padding-top: 0px;
+  @media (min-width: 768px) {
+    height: 100vh;
+    padding: 300px 12px 0px 12px;
   }
 `;
 
@@ -45,7 +45,7 @@ const HeroText = styled(Typography)`
 const HeroActions = styled.div`
   display: flex;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
 
   button {
     &:first-of-type {
@@ -62,10 +62,10 @@ const HeroActions = styled.div`
 
 const HeroMedia = styled.div`
   margin-bottom: -30vh;
-  z-index: 1;
 
-  @media (max-width: 768px) {
-    margin-bottom: -20vh;
+  @media (min-width: 768px) {
+    margin-bottom: -0vh;
+    z-index: 1;
   }
 
   img {
