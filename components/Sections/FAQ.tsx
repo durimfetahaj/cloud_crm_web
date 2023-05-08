@@ -6,13 +6,15 @@ import { Grid } from "@mui/material";
 const FaqContainer = styled.section`
   max-width: 1440px;
   margin: 0 auto;
-  @media (max-width: 768px) {
-  }
 
   hr {
     border-top: 2px solid;
-    max-width: 80%;
     margin: 40px 0px;
+    max-width: 90%;
+
+    @media (max-width: 768px) {
+      max-width: 100%;
+    }
   }
 `;
 
@@ -25,12 +27,12 @@ const Faq = () => {
       />
       <Grid container>
         {data.questions?.map((question, index) => (
-          <Grid item xs={12} md={6} key={index}>
+          <Grid item xs={12} md={6} key={index} px={"12px"}>
             <SectionHeading
               title={question.question}
               description={question.answer}
               fontSize="medium"
-              style={{ textAlign: "left", maxWidth: "80%", marginBottom: 0 }}
+              style={{ textAlign: "left", marginBottom: 0, maxWidth: "90%" }}
             />
             <hr />
           </Grid>
