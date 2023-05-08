@@ -9,7 +9,7 @@ const HeroContainer = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 50px 12px 0px 12px;
-  background-color: ${({ theme }) => theme.palette.primary.dark};
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   text-align: center;
   height: 90vh;
 

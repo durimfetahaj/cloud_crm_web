@@ -6,13 +6,13 @@ let theme = createTheme({
   palette: {
     primary: {
       main: "#5567FF",
-      dark: "#02162D",
+      dark: "#",
       light: "#7141f808",
     },
     secondary: {
-      main: "#f50057",
-      dark: "#c51162",
-      light: "#ff4081",
+      main: "#02162D",
+      dark: "#",
+      light: "#1D2146",
     },
     grey: greyColors,
     text: {

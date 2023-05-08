@@ -15,7 +15,7 @@ import { menuItems } from "data/dummy";
 
 const StyledAppBar = styled(AppBar)`
   justify-content: center;
-  background-color: ${({ theme }) => theme.palette.primary.dark};
+  background-color: ${({ theme }) => theme.palette.secondary.main};
   min-height: 75px;
   box-shadow: none;
 `;
