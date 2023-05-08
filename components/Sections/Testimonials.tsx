@@ -7,7 +7,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { Typography, useMediaQuery, useTheme } from "@mui/material";
 
 const TestimonialsContainer = styled.section`
-  margin: 6rem 0rem;
+  margin: 12rem 0rem;
   padding: 1rem;
   text-align: center;
   scroll-margin-top: 5vh;
