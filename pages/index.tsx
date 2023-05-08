@@ -9,8 +9,6 @@ import AppDownload from "components/Sections/AppDownload";
 import { testimonialsData } from "data/dummy";
 import Head from "next/head";
 
-//todo: fix css dissappears on page refresh
-
 export default function Home() {
   return (
     <>
