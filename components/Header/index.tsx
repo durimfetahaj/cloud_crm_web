@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { AppBar, Toolbar, IconButton, Drawer, Button } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -6,11 +6,14 @@ import CloseIcon from "@mui/icons-material/Close";
 import { menuItems } from "data/dummy";
 import Logo from "@/Logo";
 
-const StyledAppBar = styled(AppBar)`
+const StyledAppBar = styled(AppBar)<{ scrolled: boolean }>`
   justify-content: center;
-  background-color: ${({ theme }) => theme.palette.secondary.main};
+  background-color: ${({ theme, scrolled }) =>
+    scrolled ? "#fff" : theme.palette.secondary.main};
   min-height: 75px;
   box-shadow: none;
+  box-shadow: ${({ scrolled }) =>
+    scrolled && "rgba(149, 157, 165, 0.2) 0px 8px 24px"};
 `;
 
 const StyledToolbar = styled(Toolbar)`
@@ -56,9 +59,10 @@ const NavList = styled.ul`
   }
 `;
 
-const NavItem = styled.li`
+const NavItem = styled.li<{ scrolled?: boolean }>`
   a {
-    color: ${({ theme }) => theme.palette.common.white};
+    color: ${({ theme, scrolled }) =>
+      scrolled ? theme.palette.text.primary : theme.palette.text.secondary};
     text-decoration: none;
     transition: all 0.3s ease;
 
@@ -68,8 +72,13 @@ const NavItem = styled.li`
   }
 `;
 
-const MenuButton = styled(IconButton)`
+const MenuButton = styled(IconButton)<{ scrolled: boolean }>`
   display: none;
+
+  svg {
+    color: ${({ theme, scrolled }) =>
+      scrolled ? theme.palette.text.primary : theme.palette.text.secondary};
+  }
 
   @media (max-width: 768px) {
     display: flex;
@@ -127,6 +136,7 @@ const DrawerFooter = styled.div`
 const NavigationBar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeLink, setActiveLink] = useState("");
+  const [scrolled, setScrolled] = useState(false);
 
   const handleMenuOpen = () => {
     setIsMenuOpen(true);
@@ -136,14 +146,31 @@ const NavigationBar = () => {
     setIsMenuOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      if (scrollTop > 100) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <StyledAppBar position="fixed">
+    <StyledAppBar position="fixed" scrolled={scrolled}>
       <StyledToolbar>
-        <Logo imageUrl="/images/logo.svg" />
+        <Logo
+          imageUrl={scrolled ? "/images/logo-dark.svg" : "/images/logo.svg"}
+        />
         <Navigation>
           <NavList>
             {menuItems.map(({ label, id }) => (
-              <NavItem key={label}>
+              <NavItem key={label} scrolled={scrolled}>
                 <a
                   href={id}
                   className={activeLink === id ? "active" : ""}
@@ -157,7 +184,12 @@ const NavigationBar = () => {
             ))}
           </NavList>
         </Navigation>
-        <MenuButton edge="start" color="inherit" onClick={handleMenuOpen}>
+        <MenuButton
+          edge="start"
+          color="inherit"
+          onClick={handleMenuOpen}
+          scrolled={scrolled}
+        >
           <MenuIcon />
         </MenuButton>
 
