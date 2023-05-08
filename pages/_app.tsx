@@ -1,4 +1,4 @@
-import { CssBaseline } from "@mui/material";
+import { CssBaseline, NoSsr } from "@mui/material";
 import {
   ThemeProvider as MuiThemeProvider,
   StyledEngineProvider,
@@ -10,14 +10,16 @@ import GlobalStyles from "styles/globalSyles";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <StyledThemeProvider theme={theme}>
-      <StyledEngineProvider injectFirst>
-        <MuiThemeProvider theme={theme}>
-          <CssBaseline />
-          <GlobalStyles />
-          <Component {...pageProps} />
-        </MuiThemeProvider>
-      </StyledEngineProvider>
-    </StyledThemeProvider>
+    <NoSsr>
+      <StyledThemeProvider theme={theme}>
+        <StyledEngineProvider injectFirst>
+          <MuiThemeProvider theme={theme}>
+            <CssBaseline />
+            <GlobalStyles />
+            <Component {...pageProps} />
+          </MuiThemeProvider>
+        </StyledEngineProvider>
+      </StyledThemeProvider>
+    </NoSsr>
   );
 }
