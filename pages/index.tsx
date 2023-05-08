@@ -6,7 +6,7 @@ import Hero from "components/Sections/Hero";
 import Services from "@/Sections/Services";
 import Testimonials from "components/Sections/Testimonials";
 import AppDownload from "components/Sections/AppDownload";
-import { pricingData, testimonialsData } from "data/dummy";
+import { testimonialsData } from "data/dummy";
 import Head from "next/head";
 
 //todo: fix css dissappears on page refresh
