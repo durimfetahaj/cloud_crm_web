@@ -77,7 +77,7 @@ const Footer = () => {
         <CopyrightsWrapper>
           <Logo imageUrl="/images/logo.svg" />
           <Typography variant="body1">
-            © {new Date().getFullYear()} Next.js landing page
+            © {new Date().getFullYear()} DF
           </Typography>
         </CopyrightsWrapper>
       </Container>
